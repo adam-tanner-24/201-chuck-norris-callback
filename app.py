@@ -21,6 +21,7 @@ app.title='Ice-Cream'
 ####### Layout of the app ########
 app.layout = html.Div([
     html.H2(heading1),
+    html.Img(src=app.get_asset_url(list_of_pics[0]), style={'width': 'auto', 'height': '10%'}),
     dcc.Dropdown(id='your-input-here',
                 options=[
                     {'label':list_of_choices[0], 'value':list_of_pics[0]},
@@ -44,7 +45,10 @@ app.layout = html.Div([
 @app.callback(dash.dependencies.Output('your-output-here', 'children'),
               [dash.dependencies.Input('your-input-here', 'value')])
 def display_value(whatever_you_chose):
-    return html.Img(src=app.get_asset_url(whatever_you_chose), style={'width': 'auto', 'height': '50%'})
+    image = html.Img(src=app.get_asset_url(whatever_you_chose), style={'width': 'auto', 'height': '50%'})
+    disp_val = f'You chose {whatever_you_chose} ice cream.'
+    return image, disp_val
+    
     
 
 
