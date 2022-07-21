@@ -50,11 +50,11 @@ def image(whatever_you_chose):
     image = html.Img(src=app.get_asset_url(whatever_you_chose), style={'width': 'auto', 'height': '50%'})
     return image
 
-@app.callback(dash.dependencies.Output('output-message', 'children'),
-              [dash.dependencies.Input('your-input-here', 'label')])
-def text(whatever_you_chose):
-    disp_val = f'You chose {whatever_you_chose} ice cream.'
-    return disp_val    
+# @app.callback(dash.dependencies.Output('output-message', 'children'),
+#               [dash.dependencies.Input('your-input-here', 'label')])
+# def text(whatever_you_chose):
+#     disp_val = f'You chose {whatever_you_chose} ice cream.'
+#     return disp_val    
 
 
 
