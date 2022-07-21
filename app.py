@@ -10,7 +10,7 @@ list_of_choices=[' ', 'Chocolate', 'Vanilla','Butter Pecan','Cookies n Cream','M
 list_of_pics=['top 5 ice cream.png','chocolate-ice-cream.png','vanilla-ice-cream.png','butter-pecan-ice-cream.png','cookies-n-cream-ice-cream.png','mint-ice-cream.png']
 githublink = 'https://github.com/adam-tanner-24/201-chuck-norris-callback'
 
-heading1='Top 5 Favorite Ice-Cream Flavors'
+heading1="America's Top 5 Favorite Ice-Cream Flavors"
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -23,6 +23,7 @@ app.layout = html.Div([
     html.H2(heading1),
     dcc.Dropdown(id='your-input-here',
                 options=[
+                    {'label':list_of_choices[0], 'value':list_of_pics[0]},
                     {'label':list_of_choices[1], 'value':list_of_pics[1]},
                     {'label':list_of_choices[2], 'value':list_of_pics[2]},
                     {'label':list_of_choices[3], 'value':list_of_pics[3]},
