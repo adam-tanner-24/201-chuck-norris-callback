@@ -5,24 +5,32 @@ from dash import html
 import os
 
 ###### Set up variables
-list_of_choices=['punch', 'body-slam', 'round-house kick to the face']
-githublink = 'https://github.com/austinlasseter/chuck_norris_execution'
-image1='chucknorris.jpg'
-heading1='Chuck Norris execution method'
+list_of_choices=[' ', 'Chocolate', 'Vanilla','Butter Pecan','Cookies n Cream','Mint Chocolate Chip']
+list_of_pics=['top 5 ice cream.png','chocolate-ice-cream.png','vanilla-ice-cream.png','butter-pecan-ice-cream.png','cookies-n-cream-ice-cream.png','mint-ice-cream.png']
+githublink = 'https://github.com/adam-tanner-24/201-chuck-norris-callback'
+
+heading1='Top 5 Favorite Ice-Cream Flavors'
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
-app.title='Chuck'
+app.title='Ice-Cream'
 
 ####### Layout of the app ########
 app.layout = html.Div([
     html.H2(heading1),
-    html.Img(src=app.get_asset_url(image1), style={'width': 'auto', 'height': '10%'}),
+    html.Img(src=app.get_asset_url(list_of_pics[0]), style={'width': 'auto', 'height': '10%'}),
     dcc.Dropdown(id='your-input-here',
-                options=[{'label': i, 'value': i} for i in list_of_choices],
-                value='punch',
+                options=[
+                {'label':list_of_choices[0], 'value':list_of_pics[0]},
+                {'label':list_of_choices[1], 'value':list_of_pics[1]},
+                {'label':list_of_choices[2], 'value':list_of_pics[2]},
+                {'label':list_of_choices[3], 'value':list_of_pics[3]},
+                {'label':list_of_choices[4], 'value':list_of_pics[4]},
+                {'label':list_of_choices[5], 'value':list_of_pics[5]},
+                ],
+                value=list_of_pics[0],
                 style={'width': '500px'}),
     html.Br(),
     html.Div(id='your-output-here', children=''),
@@ -36,7 +44,7 @@ app.layout = html.Div([
 @app.callback(dash.dependencies.Output('your-output-here', 'children'),
               [dash.dependencies.Input('your-input-here', 'value')])
 def display_value(whatever_you_chose):
-    return f'Chuck Norris will now execute you with a {whatever_you_chose}.'
+    return f'You selected {whatever_you_chose} ice cream.'
 
 
 ######### Run the app #########
