@@ -6,7 +6,7 @@ from dash import Input, Output, State
 import os
 
 ###### Set up variables
-list_of_choices=['Chocolate', 'Vanilla','Butter Pecan','Cookies n Cream','Mint Chocolate Chip']
+list_of_choices=['Chocolate', 'Vanilla','Butter Pecan','Cookies n Cream','Mint Chocolate Chip',' ']
 list_of_pics=['chocolate-ice-cream.png','vanilla-ice-cream.png','butter-pecan-ice-cream.png','cookies-n-cream-ice-cream.png','mint-ice-cream.png','top 5 ice cream.png']
 githublink = 'https://github.com/adam-tanner-24/201-chuck-norris-callback'
 
