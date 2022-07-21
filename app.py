@@ -49,7 +49,7 @@ app.layout = html.Div([
               [dash.dependencies.Input('your-input-here', 'value')])
 def image(whatever_you_chose):
     image = html.Img(src=app.get_asset_url(whatever_you_chose), style={'width': 'auto', 'height': '50%'})
-    disp_val = html.Br() f'You chose {whatever_you_chose} ice cream.'
+    disp_val = f'You chose {whatever_you_chose} ice cream.'
     return image, disp_val    
 
 
