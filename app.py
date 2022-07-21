@@ -21,6 +21,7 @@ app.title='Ice-Cream'
 ####### Layout of the app ########
 app.layout = html.Div([
     html.H2(heading1),
+    html.Br(),
     dcc.Dropdown(id='your-input-here',
                 options=[
                     {'label':list_of_choices[0], 'value':list_of_pics[0]},
@@ -32,7 +33,10 @@ app.layout = html.Div([
                 ],
                 value=list_of_pics[5],
                 style={'width': '500px'}),
+    html.Br(),
     html.Div(id='your-output-here', children=''),
+    html.Br(),
+    html.Div(id='output-message', children=''),
     html.Br(),
     html.A('Code on Github', href=githublink),
 
@@ -41,10 +45,11 @@ app.layout = html.Div([
 
 ######### Interactive callbacks go here #########
 @app.callback(dash.dependencies.Output('your-output-here', 'children'),
+              dash.dependencies.Output('output-message', 'children'),
               [dash.dependencies.Input('your-input-here', 'value')])
 def image(whatever_you_chose):
     image = html.Img(src=app.get_asset_url(whatever_you_chose), style={'width': 'auto', 'height': '50%'})
-    disp_val = f'You chose {whatever_you_chose} ice cream.'
+    disp_val = html.Br() f'You chose {whatever_you_chose} ice cream.'
     return image, disp_val    
 
 
