@@ -3,6 +3,7 @@ import dash
 from dash import dcc
 from dash import html
 from dash import Input, Output, State
+from dash.exceptions import PreventUpdate
 import os
 
 ###### Set up variables
@@ -45,10 +46,16 @@ app.layout = html.Div([
 
 ######### Interactive callbacks go here #########
 @app.callback(dash.dependencies.Output('your-output-here', 'children'),
+              dash.dependencies.Output('output-message', 'children'),
               [dash.dependencies.Input('your-input-here', 'value')])
 def image(whatever_you_chose):
+    if whatever_you_chose is None:
+        raise PreventUpdate
+        
     image = html.Img(src=app.get_asset_url(whatever_you_chose), style={'width': 'auto', 'height': '50%'})
-    return image
+    split_list = whatever_you_chose.split('-',1)
+    message = 'You chose '+split_list[0]+' ice cream flavor'
+    return image, message
 
 # @app.callback(dash.dependencies.Output('output-message', 'children'),
 #               [dash.dependencies.Input('your-input-here', 'label')])
